@@ -1,0 +1,18 @@
+{
+  "id": "refactor-014",
+  "category": "refactor",
+  "title": "Extract shared cent rounding",
+  "prompt": "cart.js rounds discounted amounts inline. Add an exported roundCents(amount) helper to src/money.js (round half away from zero to an integer number of cents) and use it from cart.js. Behaviour of cartTotal must not change except for the double-discount bug, which is out of scope: leave cartTotal's results identical.",
+  "acceptance": [
+    "money.js exports roundCents",
+    "cart.js imports roundCents from money.js",
+    "cartTotal results identical to before"
+  ],
+  "allowedPaths": [
+    "src/money.js",
+    "src/cart.js",
+    "test/"
+  ],
+  "hiddenTest": "hidden/refactor-014.test.js",
+  "reference": "reference/refactor-014"
+}

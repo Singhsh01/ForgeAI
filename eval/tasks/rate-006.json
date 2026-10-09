@@ -1,0 +1,17 @@
+{
+  "id": "rate-006",
+  "category": "bugfix",
+  "title": "Rate limiter windows never reset",
+  "prompt": "createRateLimiter blocks a key forever once it hits the limit. When windowMs has elapsed since the window started, a new window must begin and requests are allowed again. remaining(key, now = Date.now()) should reflect the current window (a full limit once the window has expired).",
+  "acceptance": [
+    "Requests are allowed again after windowMs",
+    "Limits are tracked per key",
+    "remaining() resets with the window"
+  ],
+  "allowedPaths": [
+    "src/rateLimiter.js",
+    "test/"
+  ],
+  "hiddenTest": "hidden/rate-006.test.js",
+  "reference": "reference/rate-006"
+}

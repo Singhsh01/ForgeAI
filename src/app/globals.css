@@ -1,0 +1,180 @@
+@import "tailwindcss";
+
+/*
+  ForgeAI — "Nebula" design system
+  Palette sampled from the galaxy backdrop: deep void navy, salmon-ember dust, rose plasma,
+  and the rare cold ion-blue sparks. Ion is reserved for *live* things (running agents,
+  streaming events); ember→plasma is reserved for the one primary action on a screen.
+*/
+@theme {
+  --color-void: #05061a;
+  --color-abyss: #0a0c26;
+  --color-nebula: #151a44;
+  --color-ember: #ff9a82;
+  --color-plasma: #f2547f;
+  --color-ion: #8fd0ff;
+  --color-aurora: #9be8c8;
+  --color-star: #f6f4ff;
+  --color-haze: #c9c6e4;
+  --color-dim: #8e8bb3;
+  --color-warn: #ffc876;
+  --color-danger: #ff6b7d;
+
+  --font-display: "Instrument Serif", ui-serif, Georgia, serif;
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
+
+  --radius-panel: 28px;
+  --radius-card: 18px;
+  --radius-chip: 999px;
+
+  --ease-cinema: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+:root {
+  color-scheme: dark;
+  --glass-bg: rgba(12, 14, 40, 0.46);
+  --glass-bg-strong: rgba(9, 10, 30, 0.72);
+  --glass-line: rgba(246, 244, 255, 0.09);
+  --glass-line-strong: rgba(246, 244, 255, 0.18);
+  --glow-ember: 0 0 40px -8px rgba(255, 154, 130, 0.55);
+  --glow-ion: 0 0 32px -6px rgba(143, 208, 255, 0.6);
+}
+
+html {
+  background: var(--color-void);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Background lives on <html> only: a body background would paint over the fixed -z backdrop. */
+body {
+  background: transparent;
+  color: var(--color-star);
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01", "cv11";
+  min-height: 100dvh;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgba(242, 84, 127, 0.45);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-ion);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* ── Glass ─────────────────────────────────────────────────────────── */
+@utility glass {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.015)), var(--glass-bg);
+  backdrop-filter: blur(22px) saturate(140%);
+  -webkit-backdrop-filter: blur(22px) saturate(140%);
+  border: 1px solid var(--glass-line);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 30px 80px -40px rgba(0, 0, 0, 0.8);
+}
+@utility glass-strong {
+  background: var(--glass-bg-strong);
+  backdrop-filter: blur(28px) saturate(150%);
+  -webkit-backdrop-filter: blur(28px) saturate(150%);
+  border: 1px solid var(--glass-line);
+}
+@utility hairline {
+  border-color: var(--glass-line);
+}
+
+/* ── Luminous border (animated conic gradient) ─────────────────────── */
+@property --spin {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.luminous {
+  position: relative;
+  isolation: isolate;
+}
+.luminous::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: conic-gradient(from var(--spin), transparent 0deg, rgba(255, 154, 130, 0.9) 60deg, rgba(242, 84, 127, 0.9) 110deg, transparent 170deg, transparent 220deg, rgba(143, 208, 255, 0.75) 290deg, transparent 340deg);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: luminous-spin 7s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+.luminous-ion::before {
+  background: conic-gradient(from var(--spin), transparent 0deg, rgba(143, 208, 255, 0.95) 70deg, transparent 150deg, transparent 220deg, rgba(155, 232, 200, 0.6) 280deg, transparent 340deg);
+  animation-duration: 3.5s;
+}
+@keyframes luminous-spin {
+  to {
+    --spin: 360deg;
+  }
+}
+
+/* ── Ambient light orbs ────────────────────────────────────────────── */
+@keyframes drift-a {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(6vw, -4vh, 0) scale(1.15); }
+}
+@keyframes drift-b {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1.1); }
+  50% { transform: translate3d(-5vw, 5vh, 0) scale(0.95); }
+}
+.orb-a { animation: drift-a 22s var(--ease-cinema) infinite; }
+.orb-b { animation: drift-b 28s var(--ease-cinema) infinite; }
+
+/* Animated gradient text for the hero's single display line */
+.text-plasma {
+  background: linear-gradient(100deg, #fff 0%, #ffd9cf 30%, var(--color-ember) 52%, var(--color-plasma) 70%, #fff 100%);
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: sheen 9s ease-in-out infinite;
+}
+@keyframes sheen {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Live pulse for streaming / running indicators */
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 rgba(143, 208, 255, 0.55); }
+  100% { box-shadow: 0 0 0 10px rgba(143, 208, 255, 0); }
+}
+.live-dot {
+  animation: pulse-ring 1.8s ease-out infinite;
+}
+
+/* Scrollbars */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(246, 244, 255, 0.18) transparent;
+}
+
+/* React Flow theming */
+.react-flow__attribution { display: none; }
+.react-flow__edge-path { stroke: rgba(246, 244, 255, 0.22); }
+.react-flow__handle { opacity: 0; }
+
+/* Reduced motion: stop everything decorative, keep state changes instant */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .luminous::before { animation: none; }
+}

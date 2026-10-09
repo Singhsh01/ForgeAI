@@ -1,0 +1,16 @@
+{
+  "id": "testgen-018",
+  "category": "testgen",
+  "title": "Write tests for isEmail()",
+  "prompt": "src/validators.js isEmail() has no tests. Add a test file under test/ that covers valid and invalid addresses, including whitespace, multiple @, empty parts, missing dot and empty domain labels, and non-string input.",
+  "acceptance": [
+    "New tests pass on the current implementation",
+    "The tests fail against weakened validators (mutation check)",
+    "No source files changed"
+  ],
+  "allowedPaths": [
+    "test/"
+  ],
+  "hiddenTest": "hidden/testgen-018.test.js",
+  "reference": "reference/testgen-018"
+}

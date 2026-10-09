@@ -1,0 +1,17 @@
+{
+  "id": "csv-007",
+  "category": "bugfix",
+  "title": "CSV parser splits quoted commas",
+  "prompt": "parseCsvLine('a,\"b,c\",d') returns 4 fields. Quoted fields may contain commas and escaped quotes (\"\" inside quotes means a literal quote). Whitespace outside quotes is trimmed; whitespace inside quotes is preserved.",
+  "acceptance": [
+    "Quoted commas stay in one field",
+    "Doubled quotes unescape to one quote",
+    "Whitespace inside quotes preserved"
+  ],
+  "allowedPaths": [
+    "src/csv.js",
+    "test/"
+  ],
+  "hiddenTest": "hidden/csv-007.test.js",
+  "reference": "reference/csv-007"
+}

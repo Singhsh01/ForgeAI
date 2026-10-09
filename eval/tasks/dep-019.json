@@ -1,0 +1,20 @@
+{
+  "id": "dep-019",
+  "category": "dependency",
+  "title": "Remove unused dependency",
+  "prompt": "package.json declares a dependency on left-pad, which nothing imports. Remove it from package.json (and the lockfile if present). Do not add new dependencies.",
+  "acceptance": [
+    "left-pad no longer in package.json",
+    "No other dependency added",
+    "Tests still pass"
+  ],
+  "allowedPaths": [
+    "package.json",
+    "package-lock.json"
+  ],
+  "hiddenTest": "hidden/dep-019.test.js",
+  "reference": "reference/dep-019",
+  "setup": {
+    "package.json": "setup/dep-019/package.json"
+  }
+}

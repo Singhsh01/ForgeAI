@@ -1,0 +1,17 @@
+{
+  "id": "dep-020",
+  "category": "dependency",
+  "title": "Migrate off deprecated url.parse",
+  "prompt": "src/http.js uses the deprecated url.parse() from node:url. Migrate parseHost to the WHATWG URL API. IPv6 hosts must be returned without brackets, default ports stay null, and invalid input must throw a TypeError.",
+  "acceptance": [
+    "url.parse no longer used",
+    "IPv6 hosts are unbracketed",
+    "Invalid URLs throw TypeError"
+  ],
+  "allowedPaths": [
+    "src/http.js",
+    "test/"
+  ],
+  "hiddenTest": "hidden/dep-020.test.js",
+  "reference": "reference/dep-020"
+}

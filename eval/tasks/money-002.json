@@ -1,0 +1,17 @@
+{
+  "id": "money-002",
+  "category": "bugfix",
+  "title": "formatCents breaks on negative amounts",
+  "prompt": "formatCents(-1234) returns a wrong string. Negative amounts must render as \"-$12.34\" and -5 as \"-$0.05\".",
+  "acceptance": [
+    "formatCents(-1234) === \"-$12.34\"",
+    "formatCents(-5) === \"-$0.05\"",
+    "Positive formatting unchanged"
+  ],
+  "allowedPaths": [
+    "src/money.js",
+    "test/"
+  ],
+  "hiddenTest": "hidden/money-002.test.js",
+  "reference": "reference/money-002"
+}

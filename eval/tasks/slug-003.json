@@ -1,0 +1,17 @@
+{
+  "id": "slug-003",
+  "category": "bugfix",
+  "title": "slugify leaves repeated and trailing dashes",
+  "prompt": "slugify(\"  Hello,   World!  \") should produce \"hello-world\": collapse runs of separators into one dash and trim leading/trailing dashes. Accented Latin letters should be transliterated (\"Cr\u00e8me br\u00fbl\u00e9e\" -> \"creme-brulee\").",
+  "acceptance": [
+    "Runs of non-alphanumerics become a single dash",
+    "No leading or trailing dashes",
+    "Accents are stripped via Unicode normalisation"
+  ],
+  "allowedPaths": [
+    "src/slugify.js",
+    "test/"
+  ],
+  "hiddenTest": "hidden/slug-003.test.js",
+  "reference": "reference/slug-003"
+}

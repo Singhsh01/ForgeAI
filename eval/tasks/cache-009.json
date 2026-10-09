@@ -1,0 +1,17 @@
+{
+  "id": "cache-009",
+  "category": "feature",
+  "title": "Add per-entry TTL to LruCache",
+  "prompt": "Extend LruCache so set(key, value, { ttlMs }) makes the entry expire after ttlMs. Expired entries behave as missing for get() and has(). The constructor accepts an optional { now } clock function (default Date.now) so expiry is testable. Existing behaviour must not change for entries without a TTL.",
+  "acceptance": [
+    "Expired entries return undefined from get() and false from has()",
+    "Entries without TTL never expire",
+    "Clock is injectable via constructor option { now }"
+  ],
+  "allowedPaths": [
+    "src/cache.js",
+    "test/"
+  ],
+  "hiddenTest": "hidden/cache-009.test.js",
+  "reference": "reference/cache-009"
+}

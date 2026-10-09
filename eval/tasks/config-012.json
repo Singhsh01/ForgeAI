@@ -1,0 +1,17 @@
+{
+  "id": "config-012",
+  "category": "feature",
+  "title": "Coerce config values to the default's type",
+  "prompt": "readConfig returns strings for everything. Coerce env values to the type of the default: numbers via Number (throw an Error naming the key when not a finite number), booleans from true/false/1/0/yes/no (case-insensitive, throw on anything else), strings unchanged.",
+  "acceptance": [
+    "Numbers and booleans are coerced",
+    "Invalid values throw an Error that names the key",
+    "Missing keys still use the default"
+  ],
+  "allowedPaths": [
+    "src/config.js",
+    "test/"
+  ],
+  "hiddenTest": "hidden/config-012.test.js",
+  "reference": "reference/config-012"
+}

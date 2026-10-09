@@ -1,0 +1,13 @@
+node_modules
+.next
+.forgeai
+.env
+.env.local
+*.log
+test-results
+playwright-report
+eval/reports/*.json
+!eval/reports/.gitkeep
+next-env.d.ts
+*.tsbuildinfo
+public/monaco

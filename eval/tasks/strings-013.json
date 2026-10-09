@@ -1,0 +1,17 @@
+{
+  "id": "strings-013",
+  "category": "feature",
+  "title": "Add wordWrap(text, width)",
+  "prompt": "Add and export wordWrap(text, width) from src/strings.js. It breaks text into lines of at most width characters at spaces, joins lines with \\n, and hard-splits words longer than width.",
+  "acceptance": [
+    "Lines never exceed width",
+    "Words are not split unless longer than width",
+    "Existing exports unchanged"
+  ],
+  "allowedPaths": [
+    "src/strings.js",
+    "test/"
+  ],
+  "hiddenTest": "hidden/strings-013.test.js",
+  "reference": "reference/strings-013"
+}

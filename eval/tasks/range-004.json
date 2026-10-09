@@ -1,0 +1,17 @@
+{
+  "id": "range-004",
+  "category": "bugfix",
+  "title": "daysBetween is off by one",
+  "prompt": "daysBetween is documented as inclusive but daysBetween(\"2024-01-01\",\"2024-01-01\") returns 0. Make it inclusive, and return 0 when end is before start.",
+  "acceptance": [
+    "Same day returns 1",
+    "Jan 1 to Jan 31 returns 31",
+    "End before start returns 0"
+  ],
+  "allowedPaths": [
+    "src/dateRange.js",
+    "test/"
+  ],
+  "hiddenTest": "hidden/range-004.test.js",
+  "reference": "reference/range-004"
+}

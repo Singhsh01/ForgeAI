@@ -1,0 +1,19 @@
+{
+  "id": "refactor-016",
+  "category": "refactor",
+  "title": "Deduplicate clamp()",
+  "prompt": "clamp() is copy-pasted in paginate.js and rateLimiter.js. Move it to a new src/math.js (exported), and import it in both modules. No behaviour change.",
+  "acceptance": [
+    "src/math.js exports clamp",
+    "Neither paginate.js nor rateLimiter.js defines its own clamp",
+    "Behaviour unchanged"
+  ],
+  "allowedPaths": [
+    "src/math.js",
+    "src/paginate.js",
+    "src/rateLimiter.js",
+    "test/"
+  ],
+  "hiddenTest": "hidden/refactor-016.test.js",
+  "reference": "reference/refactor-016"
+}

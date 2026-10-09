@@ -1,0 +1,17 @@
+{
+  "id": "events-011",
+  "category": "feature",
+  "title": "Add once() to Emitter",
+  "prompt": "Add Emitter#once(event, fn): the listener runs on the next emit only. It returns an unsubscribe function like on().",
+  "acceptance": [
+    "once listeners fire exactly one time",
+    "Unsubscribe before emit prevents the call",
+    "on() listeners unaffected"
+  ],
+  "allowedPaths": [
+    "src/events.js",
+    "test/"
+  ],
+  "hiddenTest": "hidden/events-011.test.js",
+  "reference": "reference/events-011"
+}

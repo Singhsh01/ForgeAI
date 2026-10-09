@@ -1,0 +1,17 @@
+{
+  "id": "page-008",
+  "category": "bugfix",
+  "title": "Pagination skips the first page of results",
+  "prompt": "paginate(items, 1, 10) returns items 10-19 instead of 0-9. Fix the offset so pages are 1-based.",
+  "acceptance": [
+    "Page 1 starts at index 0",
+    "Last page holds the remainder",
+    "Out-of-range pages are clamped"
+  ],
+  "allowedPaths": [
+    "src/paginate.js",
+    "test/"
+  ],
+  "hiddenTest": "hidden/page-008.test.js",
+  "reference": "reference/page-008"
+}

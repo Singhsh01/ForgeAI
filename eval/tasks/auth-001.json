@@ -1,0 +1,17 @@
+{
+  "id": "auth-001",
+  "category": "bugfix",
+  "title": "Expired sessions are still treated as valid",
+  "prompt": "Fix the authentication bug causing expired sessions to remain valid. isSessionValid must reject sessions whose expiresAt is in the past (or missing). Add a regression test.",
+  "acceptance": [
+    "isSessionValid returns false when expiresAt <= now",
+    "isSessionValid returns false when expiresAt is missing",
+    "Unexpired sessions stay valid; touchSession refuses expired sessions"
+  ],
+  "allowedPaths": [
+    "src/auth/session.js",
+    "test/"
+  ],
+  "hiddenTest": "hidden/auth-001.test.js",
+  "reference": "reference/auth-001"
+}

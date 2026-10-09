@@ -1,0 +1,17 @@
+{
+  "id": "cart-005",
+  "category": "bugfix",
+  "title": "Cart discount is applied twice",
+  "prompt": "cartTotal applies discountPercent to every line and then again to the subtotal. The discount must be applied once to the subtotal, rounded to the nearest cent.",
+  "acceptance": [
+    "10% off a 1000-cent subtotal is 900",
+    "Rounding happens once on the subtotal",
+    "No discount behaviour unchanged"
+  ],
+  "allowedPaths": [
+    "src/cart.js",
+    "test/"
+  ],
+  "hiddenTest": "hidden/cart-005.test.js",
+  "reference": "reference/cart-005"
+}

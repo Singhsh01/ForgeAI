@@ -1,0 +1,16 @@
+{
+  "id": "testgen-017",
+  "category": "testgen",
+  "title": "Write tests for truncate()",
+  "prompt": "src/strings.js truncate() has no tests. Add a test file under test/ that thoroughly covers it, including the edge cases at and around max and very small max values.",
+  "acceptance": [
+    "New tests pass on the current implementation",
+    "The tests fail against a subtly broken truncate (mutation check)",
+    "No source files changed"
+  ],
+  "allowedPaths": [
+    "test/"
+  ],
+  "hiddenTest": "hidden/testgen-017.test.js",
+  "reference": "reference/testgen-017"
+}

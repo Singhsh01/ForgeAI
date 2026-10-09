@@ -1,0 +1,20 @@
+{
+  "id": "refactor-015",
+  "category": "refactor",
+  "title": "paginate accepts an options object",
+  "prompt": "Allow paginate(items, { page, size }) in addition to the positional paginate(items, page, size), without changing results for either form.",
+  "acceptance": [
+    "Options form works",
+    "Positional form still works",
+    "Defaults page=1,size=10 in both forms"
+  ],
+  "allowedPaths": [
+    "src/paginate.js",
+    "test/"
+  ],
+  "hiddenTest": "hidden/refactor-015.test.js",
+  "reference": "reference/refactor-015",
+  "setup": {
+    "src/paginate.js": "reference/page-008/src/paginate.js"
+  }
+}

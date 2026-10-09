@@ -1,0 +1,17 @@
+{
+  "id": "retry-010",
+  "category": "feature",
+  "title": "Exponential backoff for retry()",
+  "prompt": "Add options to retry(): factor (default 1) multiplies the delay after each failed attempt, and onRetry(error, attemptIndex) is called before each re-try. Keep the existing signature and defaults working.",
+  "acceptance": [
+    "Delays grow by factor",
+    "onRetry is called once per retry with the error and attempt index",
+    "Defaults unchanged"
+  ],
+  "allowedPaths": [
+    "src/retry.js",
+    "test/"
+  ],
+  "hiddenTest": "hidden/retry-010.test.js",
+  "reference": "reference/retry-010"
+}
