@@ -39,13 +39,21 @@ The full vertical slice is implemented. Every step is real code; nothing in the 
 
 ## Screens
 
-| Mission Control (real run, no API key configured) | Mission Control (scripted-model integration run) |
-|---|---|
-| ![](docs/screenshots/mission-control-real-run-no-key.jpg) | ![](docs/screenshots/mission-control-scripted.jpg) |
+### Mission Control (real run, no API key configured)
 
-| Code review (scripted-model integration run) | Observability (scripted-model integration run) |
-|---|---|
-| ![](docs/screenshots/code-review-scripted.jpg) | ![](docs/screenshots/observability-scripted.jpg) |
+![Mission Control, real run](docs/screenshots/mission-control-real-run-no-key.jpg)
+
+### Mission Control (scripted-model integration run)
+
+![Mission Control, scripted run](docs/screenshots/mission-control-scripted.jpg)
+
+### Code review (scripted-model integration run)
+
+![Code review](docs/screenshots/code-review-scripted.jpg)
+
+### Observability (scripted-model integration run)
+
+![Observability](docs/screenshots/observability-scripted.jpg)
 
 > **About the screenshots.** "Real run, no API key" is a genuine run: clone, branch, project detection and a baseline Docker test run all completed, then planning stopped with a clear error because no key was configured. The "scripted" screenshots come from the controller integration test. Git, the sandbox, the database, the state machine, approvals and the UI are all real there, but the model is a deterministic test double, so its token and cost numbers are synthetic. They show what the UI looks like. They are not evidence of agent quality.
 
